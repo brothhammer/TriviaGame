@@ -57,7 +57,9 @@ $(document).ready(function(){
 		console.log(myQuestions[questionNumber].correct);
 		if($(this).attr("data").charAt(0) === myQuestions[questionNumber].correct) {
 			correct++;
-			$(".questionResult").html("<h3>You are wise. "+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
+			$(".questionResult").html("<h3>You are wise.</h3>");
+			$(".questionResult").append("<h3>"+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
+			// $(".questionResult").html("<h3>You are wise. "+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
 			console.log("Correct!!!");
 			pause();
 		}
@@ -66,7 +68,8 @@ $(document).ready(function(){
 		}
 		else {
 			inCorrect++;
-			$(".questionResult").html("<h3>That is incorrect. "+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
+			$(".questionResult").html("<h3>That is incorrect.</h3>");
+			$(".questionResult").append("<h3>"+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
 			console.log("The correct answer is "+myQuestions[questionNumber].correct);
 			pause();
 		}
@@ -99,6 +102,10 @@ $(document).ready(function(){
 			clearTimeout(interval);
 			console.log("Quiz complete");
 			countDown.html("Quiz Finished");
+			currentQuestion.empty();
+			$(".buttons").empty();
+			$(".questionResult").html("<h3>Correct answers = "+correct+"</h3>");
+			$(".questionResult").append("<h3>Wrong answers = "+inCorrect+"</h3>");
 		}
 	}
 	//runs every second to check if timer finished
@@ -107,7 +114,8 @@ $(document).ready(function(){
 		if (timeLeft === 0 && questionNumber < myQuestions.length-1) {
 			countDown.html("Time Remaining: "+timeLeft+" seconds");
 			console.log("Ran out of time");
-			$(".questionResult").html("<h3>Contemplation is good but that was too long. "+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
+			$(".questionResult").html("<h3>Contemplation is good but that was too long. </h3>");
+			$(".questionResult").append("<h3>"+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
 			inCorrect++;
 			pause();	
 		}
@@ -116,7 +124,8 @@ $(document).ready(function(){
 			(timeLeft === 0 && questionNumber === myQuestions.length-1){
 				countDown.html("Time Remaining: "+timeLeft+" seconds");
 				console.log("Ran out of time last question");
-				$(".questionResult").html("<h3>Contemplation is good but that was too long. "+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
+				$(".questionResult").html("<h3>Contemplation is good but that was too long. </h3>");
+				$(".questionResult").append("<h3>"+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
 				inCorrect++
 				pause();
 		}
