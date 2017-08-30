@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	//Global variables
-	var timeLeft = 5; //time for first question
+	var timeLeft = 20; //time for first question
 	var countDown = $(".countDown"); //target HTML used to display time
 	var currentQuestion = $(".question"); //target HTML to display current question
 	var correct = 0; //count correct answers
@@ -11,35 +11,45 @@ $(document).ready(function(){
 	//Store questions as an array of objects
 	var myQuestions = [
 		{
-			question: "The answer is a?",
+			question: '"We are shaped by our thoughts; we become what we think. When the mind is pure, joy follows like a shadow that never leaves."',
 			answers: [
-				"a: Something",
-				"b: Something",
-				"c: Something",
-				"d: Something"
-			],
-			correct: "a"
-		},
-		{
-			question: "The answer is b?",
-			answers: [
-				"a: Something",
-				"b: Something",
-				"c: Something",
-				"d: Something"
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
 			],
 			correct: "b"
 		},
 		{
-			question: "The answer is c?",
+			question: '"From the deepest desires often come the deadliest hate."',
 			answers: [
-				"a: Something",
-				"b: Something",
-				"c: Something",
-				"d: Something"
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
+			],
+			correct: "a"
+		},
+		{
+			question: '"It is easy to hate and it is difficult to love. This is how the whole scheme of things works."',
+			answers: [
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
 			],
 			correct: "c"
 		},
+		{
+			question: '"Fear leads to anger, anger leads to hate, hate leads to suffering."',
+			answers: [
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
+			],
+			correct: "d"
+		}
 		];
 	//call the timeOut function every 1 second
 	var interval = setInterval(timeOut, 1000);
@@ -79,13 +89,13 @@ $(document).ready(function(){
 		$(document).off("click", "button");
 		clearInterval(interval);
 		// $(document).off("click", "button");
-		setTimeout(reset, 3000);
+		setTimeout(reset, 5000);
 	}
 	//called to reset the timer and load next question to the page
 	function reset() {
 		clearInterval(interval);
 		questionNumber++;
-		timeLeft = 5;
+		timeLeft = 20;
 		interval = setInterval(timeOut, 1000);
 		countDown.html("Time Remaining: "+timeLeft+" seconds");
 		$(".questionResult").empty();
