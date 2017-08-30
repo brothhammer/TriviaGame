@@ -86,6 +86,7 @@ $(document).ready(function(){
 		interval = setInterval(timeOut, 1000);
 		countDown.html("Time Remaining: "+timeLeft+" seconds");
 		$(".questionResult").empty();
+		$("button").blur();
 		
 		//if more questions to ask then load next question and turn click handler back on
 		if(questionNumber <= myQuestions.length-1){
@@ -114,10 +115,10 @@ $(document).ready(function(){
 		else if
 			(timeLeft === 0 && questionNumber === myQuestions.length-1){
 				countDown.html("Time Remaining: "+timeLeft+" seconds");
-				console.log("End of the quiz.")
-				countDown.html("Quiz Finished");
-				clearTimeout(interval);
-				$(document).off("click", "button");
+				console.log("Ran out of time last question");
+				$(".questionResult").html("<h3>Contemplation is good but that was too long. "+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
+				inCorrect++
+				pause();
 		}
 		//otherwise update the html and decrement the timeLeft varaible
 		else {
