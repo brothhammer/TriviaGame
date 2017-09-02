@@ -8,7 +8,7 @@ $(document).ready(function(){
 	var inCorrect = 0; //count incorrect answers
 	var questionNumber = 0; //count questions asked
 
-	//Store questions as an array of objects
+	//Store questions, answer choices and correct answer as an array of objects
 	var myQuestions = [
 		{
 			question: '"We are shaped by our thoughts; we become what we think. When the mind is pure, joy follows like a shadow that never leaves."',
@@ -120,8 +120,8 @@ $(document).ready(function(){
 
 	//click handler for buttons
 	$(document).on("click", "button", checkCorrect);
-	$(document).on("keypress", "button", checkCorrect);
-	var a = event.keyCode;
+	// $(document).on("keypress", "button", checkCorrect);
+	// var a = event.keyCode;
 
 	//on click of button check for correct or incorrect answer, itterate counter and display results
 	function checkCorrect() {
@@ -131,7 +131,6 @@ $(document).ready(function(){
 			correct++;
 			$(".questionResult").html("<h3>You are wise.</h3>");
 			$(".questionResult").append("<h3>"+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
-			// $(".questionResult").html("<h3>You are wise. "+myQuestions[questionNumber].correct+": is the correct answer.</h3>");
 			console.log("Correct!!!");
 			pause();
 		}
@@ -150,7 +149,6 @@ $(document).ready(function(){
 	function pause() {
 		$(document).off("click", "button");
 		clearInterval(interval);
-		// $(document).off("click", "button");
 		setTimeout(reset, 5000);
 	}
 	//called to reset the timer and load next question to the page
