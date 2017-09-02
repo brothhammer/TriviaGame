@@ -49,6 +49,66 @@ $(document).ready(function(){
 				"d: Yoda"
 			],
 			correct: "d"
+		},
+		{
+			question: '"Life is really simple, but we insist on making it complicated."',
+			answers: [
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
+			],
+			correct: "c"
+		},
+		{
+			question: '"Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment."',
+			answers: [
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
+			],
+			correct: "b"
+		},
+		{
+			question: '"Attachement leads to jealousy. The shadow of greed, that is. Train yourself to let go of everything you fear to lose."',
+			answers: [
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
+			],
+			correct: "d"
+		},
+		{
+			question: '"He who learns but does not think, is lost! He who thinks but does not learn is in great danger."',
+			answers: [
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
+			],
+			correct: "c"
+		},
+		{
+			question: '"Many of the truths we cling to depend on our point of view."',
+			answers: [
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
+			],
+			correct: "d"
+		},
+		{
+			question: '"Flase words are not only evil in themselves, but they infect the soul with evil."',
+			answers: [
+				"a: Socrates",
+				"b: Buddha",
+				"c: Confucius",
+				"d: Yoda"
+			],
+			correct: "a"
 		}
 		];
 	//call the timeOut function every 1 second
@@ -60,6 +120,8 @@ $(document).ready(function(){
 
 	//click handler for buttons
 	$(document).on("click", "button", checkCorrect);
+	$(document).on("keypress", "button", checkCorrect);
+	var a = event.keyCode;
 
 	//on click of button check for correct or incorrect answer, itterate counter and display results
 	function checkCorrect() {
